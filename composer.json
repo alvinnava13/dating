@@ -1,0 +1,13 @@
+{
+  "name": "anava8/328/dating",
+  "authors":
+  [
+    {
+      "name": "Alvin Nava",
+      "email": "anava8@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
