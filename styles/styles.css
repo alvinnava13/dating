@@ -15,7 +15,10 @@
     border-radius: 8px;
 }
 
-#topHeader {
-    height: 20px;
-    margin-top: 5px;
+#nav {
+    padding-bottom: 10px;
+}
+
+.indent {
+    text-indent: 30px;
 }
