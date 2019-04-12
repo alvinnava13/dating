@@ -10,3 +10,12 @@
     margin: 4px 2px;
     border-radius: 8px;
 }
+
+#picture {
+    border-radius: 8px;
+}
+
+#topHeader {
+    height: 20px;
+    margin-top: 5px;
+}
