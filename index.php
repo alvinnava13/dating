@@ -17,14 +17,13 @@ $f3->route('GET /', function () {
 
     // Display a view
     $view = new Template();
-    echo $view->render('views/home.html');
+    echo $view->render('views/info.html');
 });
 
-// Define an personal info route
-$f3->route('POST /order-process', function(){
+// Define a personal info route
+$f3->route('POST /create', function(){
 
     //print_r($_POST);
-    //$_SESSION['food'] = $_POST['food'];
 
     // Display form2
     $view = new Template();
