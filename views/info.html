@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <title>Dating Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/info.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -28,32 +29,46 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-9">
-            <h2 class="indenting">Personal Information</h2>
-            <p>Welcome to the web's most successful dating website.
-                At <strong>My Dating Website</strong> you'll meet another
-                like minded individuals. We have the highest success
-                rate of couples on the web. User's are matched by
-                interest and location. Find out why so many others have found
-                love on our site!</p><br>
-            <h4 class="indent">Hear what our users are saying about us.</h4><br>
-            <hr>
-
-            <div class="quotes">
-                <p class="indent">"<em>I met the love of my life after only a month!</em>" - Andrea</p>
-                <p class="indent">"<em>It was so easy to set up and profile and start meeting
-                    people. I didn't realize how many others were looking
-                    for love in my area.</em>" -John Smith</p>
-                <p class="indent">"<em>Just try it! You'll never be the same!</em>" - Sarah</p>
-            </div>
-
-
+        <div class="col-sm-8">
             <br>
+            <h2 class="indentHead">Personal Information</h2>
+
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">First Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Last Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput3">Age</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput3">
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Male">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Female
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Female">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Female
+                    </label>
+                </div>
+                <div class="form-group">
+                    <br>
+                    <label for="formGroupExampleInput4">Phone Number</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput4">
+                </div>
+            </form>
 
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="button">
-                <form method="post" action="create">
+                <form method="post" action="profile">
                     <button type="button" id="button">Next></button>
                 </form>
             </div>
