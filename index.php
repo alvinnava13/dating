@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -23,7 +24,7 @@ $f3->route('GET /', function () {
 // Define a personal info route
 $f3->route('GET /create', function(){
 
-    //print_r($_POST);
+
 
     // Display form2
     $view = new Template();
@@ -48,6 +49,16 @@ $f3->route('GET /profile', function(){
     // Display form2
     $view = new Template();
     echo $view->render('views/interests.html');
+});
+
+// Define a profile summary route
+$f3->route('POST /summary', function(){
+
+    //print_r($_POST);
+
+    // Display form2
+    $view = new Template();
+    echo $view->render('views/summary.html');
 });
 
 // Run Fat-free
