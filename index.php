@@ -17,17 +17,27 @@ $f3->route('GET /', function () {
 
     // Display a view
     $view = new Template();
-    echo $view->render('views/info.html');
+    echo $view->render('views/home.html');
 });
 
 // Define a personal info route
-$f3->route('POST /create', function(){
+$f3->route('GET /create', function(){
 
     //print_r($_POST);
 
     // Display form2
     $view = new Template();
     echo $view->render('views/info.html');
+});
+
+// Define a profile route
+$f3->route('GET /info', function(){
+
+    //print_r($_POST);
+
+    // Display form2
+    $view = new Template();
+    echo $view->render('views/profile.html');
 });
 
 // Run Fat-free
