@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Dating Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/info.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -35,14 +35,14 @@
 
             <form method="post" action="info">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Email</label>
+                    <label for="formGroupExampleInput"><strong>Email</strong></label>
                     <input type="text" class="form-control" id="formGroupExampleInput">
                 </div>
 
 
                 <div class="form-row align-items-center">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
+                    <label for="inputState"><strong>State</strong></label>
+                    <select id="inputState" class="custom-select custom-select-lg mb-3">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -98,6 +98,7 @@
                 </div>
                 <br>
 
+                <label><strong>Seeking</strong></label><br>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Male">
                     <label class="form-check-label" for="exampleRadios1">
@@ -118,7 +119,7 @@
         <div class="col-sm-6">
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Biography</label>
+                <label for="exampleFormControlTextarea1"><strong>Biography</strong></label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
