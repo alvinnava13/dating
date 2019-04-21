@@ -24,24 +24,20 @@ $f3->route('GET /', function () {
 // Define a personal info route
 $f3->route('GET /create', function(){
 
-    $_SESSION['firstname'] = $_GET['firstname'];
-    $_SESSION['lastname'] = $_GET['lastname'];
-    $_SESSION['age'] = $_GET['age'];
-    $_SESSION['exampleRadios'] = $_GET['exampleRadios'];
-    $_SESSION['number'] = $_GET['number'];
-
     // Display form2
     $view = new Template();
     echo $view->render('views/info.html');
 });
 
 // Define a profile route
-$f3->route('GET /info', function(){
+$f3->route('POST /profile', function(){
 
-    $_SESSION['email'] = $_GET['email'];
-    $_SESSION['state'] = $_GET['state'];
-    $_SESSION['exampleRadiosSeeking'] = $_GET['exampleRadios'];
-    $_SESSION['bio'] = $_GET['bio'];
+    $_SESSION['firstname'] = $_POST['firstname'];
+    $_SESSION['lastname'] = $_POST['lastname'];
+    $_SESSION['age'] = $_POST['age'];
+    $_SESSION['exampleRadios'] = $_POST['exampleRadios'];
+    $_SESSION['number'] = $_POST['number'];
+
 
     // Display form2
     $view = new Template();
@@ -49,9 +45,12 @@ $f3->route('GET /info', function(){
 });
 
 // Define an interests route
-$f3->route('GET /profile', function(){
+$f3->route('POST /interests', function(){
 
-    //print_r($_POST);
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['state'] = $_POST['state'];
+    $_SESSION['exampleRadiosSeeking'] = $_POST['exampleRadios'];
+    $_SESSION['bio'] = $_POST['bio'];
 
     // Display form2
     $view = new Template();

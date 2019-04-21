@@ -31,18 +31,18 @@
     <div class="row">
         <div class="col-sm-6"><br>
             <form>
-                <fieldset disabled>
-                    <div class="form-group">
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Name: ">
+                <div class="col-sm-9" style="" contenteditable="false">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Name: {{ @SESSION.firstname}}</div>
                     </div>
-                </fieldset>
+                </div>
             </form>
 
         </div>
 
 
         <div class="col-sm-6">
-
+            <p>{{ @SESSION.firstname }}</p>
         </div>
 
 
