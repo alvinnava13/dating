@@ -27,40 +27,43 @@
 
 
 
-<div class="container">
+<div class="container border rounded">
     <div class="row">
-        <div class="col-sm-6"><br>
-            <form>
-                <div class="col-sm-9" style="" contenteditable="false">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Name: {{ @SESSION.firstname}}</div>
-                    </div>
-                </div>
-            </form>
-
+        <div class="col-sm-6">
+            <div id="profileSum" class="border rounded">
+                <p>Name:  </p>
+                <hr>
+                <p>Gender: </p>
+                <hr>
+                <p>Age: </p>
+                <hr>
+                <p>Phone: </p>
+                <hr>
+                <p>Email: </p>
+                <hr>
+                <p>State: </p>
+                <hr>
+                <p>Seeking: </p>
+                <hr>
+                <p>Interests: </p>
+            </div>
         </div>
-
 
         <div class="col-sm-6">
-            <p>{{ @SESSION.firstname }}</p>
+            <div class="text-center">
+                <img src="images/profilePicture.jpg" alt="Profile Picture">
+            </div>
+            <label>Biography</label>
+            <p class="text-center"></p>
         </div>
-
-
-
-
-
-
     </div>
 
     <div class="row">
-        <div class="button">
-            <form>
-                <input type="submit" value="Contact Me!">
-            </form>
+        <div class="col-sm-12 text-center">
+            <input type="submit" value="Contact Me!">
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
