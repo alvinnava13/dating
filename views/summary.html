@@ -31,38 +31,39 @@
     <div class="row">
         <div class="col-sm-6">
             <div id="profileSum" class="border rounded">
-                <label>Name: </label><p>{{ @SESSION.firstname }} {{ @SESSION.lastname }}</p>
+                <p class="indentP">Name: {{ @SESSION.firstname }} {{ @SESSION.lastname }}</p>
                 <hr>
-                <label>Gender: </label><p>{{ @SESSION.gender }}</p>
+                <p class="indentP">Gender: {{ @SESSION.gender }}</p>
                 <hr>
-                <label>Age: </label><p>{{ @SESSION.age }}</p>
+                <p class="indentP">Age: {{ @SESSION.age }}</p>
                 <hr>
-                <label>Phone: </label><p>{{ @SESSION.number }}</p>
+                <p class="indentP">Phone: {{ @SESSION.number }}</p>
                 <hr>
-                <label>Email: </label><p>{{ @SESSION.email }}</p>
+                <p class="indentP">Email: {{ @SESSION.email }}</p>
                 <hr>
-                <label>State: </label><p>{{ @SESSION.state }}</p>
+                <p class="indentP">State: {{ @SESSION.state }}</p>
                 <hr>
-                <label>Seeking: </label><p>{{ @SESSION.exampleRadiosSeeking }}</p>
+                <p class="indentP">Seeking: {{ @SESSION.exampleRadiosSeeking }}</p>
                 <hr>
-                <label>Interests: </label><p>{{ @SESSION.interest }}</p>
+                <p class="indentP">Interests: {{ @SESSION.interest }}</p>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="text-center">
-                <img src="images/profilePicture.jpg" alt="Profile Picture">
+                <img src="images/profilePicture.jpg" alt="Profile Picture" id="image">
             </div>
-            <label>Biography</label>
+            <label class="enlarge">Biography</label>
             <p class="text-center">{{ @SESSION.bio }}</p>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="submitButton">
         <div class="col-sm-12 text-center">
             <input type="submit" value="Contact Me!" class="btn btn-primary bottomMargin">
         </div>
     </div>
+    <br>
 </div>
 
 </body>

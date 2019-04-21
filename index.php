@@ -60,7 +60,10 @@ $f3->route('POST /interests', function(){
 // Define a profile summary route
 $f3->route('POST /summary', function(){
 
-    $_SESSION['interest'] = $_POST['interest'];
+    $select = join(', ', $_POST['interest']);
+    $selected = trim($select);
+
+    $_SESSION['interest'] = $selected;
 
     // Display form2
     $view = new Template();
