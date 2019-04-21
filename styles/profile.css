@@ -3,7 +3,7 @@
 }
 
 .button {
-    right: 0;
-    bottom: 0;
+    padding-right: 20px;
+    bottom: 5px;
     position: absolute;
 }
