@@ -26,3 +26,7 @@
 .blue {
     color: blue;
 }
+
+.form-check-label {
+    padding-right: 10px;
+}
