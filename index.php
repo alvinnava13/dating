@@ -24,7 +24,11 @@ $f3->route('GET /', function () {
 // Define a personal info route
 $f3->route('GET /create', function(){
 
-
+    $_SESSION['firstname'] = $_GET['firstname'];
+    $_SESSION['lastname'] = $_GET['lastname'];
+    $_SESSION['age'] = $_GET['age'];
+    $_SESSION['exampleRadios'] = $_GET['exampleRadios'];
+    $_SESSION['number'] = $_GET['number'];
 
     // Display form2
     $view = new Template();
@@ -34,7 +38,10 @@ $f3->route('GET /create', function(){
 // Define a profile route
 $f3->route('GET /info', function(){
 
-    //print_r($_POST);
+    $_SESSION['email'] = $_GET['email'];
+    $_SESSION['state'] = $_GET['state'];
+    $_SESSION['exampleRadiosSeeking'] = $_GET['exampleRadios'];
+    $_SESSION['bio'] = $_GET['bio'];
 
     // Display form2
     $view = new Template();
@@ -54,7 +61,7 @@ $f3->route('GET /profile', function(){
 // Define a profile summary route
 $f3->route('POST /summary', function(){
 
-    //print_r($_POST);
+    $_SESSION['interest'] = $_POST['interest'];
 
     // Display form2
     $view = new Template();
