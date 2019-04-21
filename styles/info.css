@@ -1,8 +1,10 @@
 .button {
-    /*
+
     position: absolute;
     right: 0;
     bottom: 0;
+    padding-bottom: 20px;
+    /*
     background-color: rgb(31,112,206);
     border: 2px solid;
     padding: 20px;
