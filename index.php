@@ -35,7 +35,7 @@ $f3->route('POST /profile', function(){
     $_SESSION['firstname'] = $_POST['firstname'];
     $_SESSION['lastname'] = $_POST['lastname'];
     $_SESSION['age'] = $_POST['age'];
-    $_SESSION['exampleRadios'] = $_POST['exampleRadios'];
+    $_SESSION['gender'] = $_POST['exampleRadios'];
     $_SESSION['number'] = $_POST['number'];
 
 

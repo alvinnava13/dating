@@ -8,3 +8,11 @@
     display: table;
     clear: both;
 }
+
+.moveRight {
+    position: relative;
+    padding-left: 50px;
+}
+
+
+

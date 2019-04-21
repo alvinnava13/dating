@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Dating Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/info.css">
+    <link rel="stylesheet" href="styles/profile.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -28,12 +28,13 @@
 
 
 <div class="container">
+    <br>
+    <h2 class="indentHead">Profile</h2>
+    <hr>
     <div class="row">
         <div class="col-sm-6">
-            <br>
-            <h2 class="indentHead">Profile</h2>
 
-            <form method="post" action="info">
+            <form method="post" action="interests">
                 <div class="form-group">
                     <label for="formGroupExampleInput"><strong>Email</strong></label>
                     <input type="text" class="form-control" id="formGroupExampleInput" name="email">
@@ -51,7 +52,6 @@
                         <option value="CO">Colorado</option>
                         <option value="CT">Connecticut</option>
                         <option value="DE">Delaware</option>
-                        <option value="DC">District Of Columbia</option>
                         <option value="FL">Florida</option>
                         <option value="GA">Georgia</option>
                         <option value="HI">Hawaii</option>
@@ -111,6 +111,10 @@
                         Female
                     </label>
                 </div>
+                <div class="row button">
+                    <input type="submit" value="Next>" class="btn btn-primary float-right bottomMargin">
+                </div>
+
             </form>
         </div>
         <br>
@@ -123,11 +127,7 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio"></textarea>
             </div>
 
-            <div class="button">
-                <form method="post" action="interests">
-                    <input type="submit" value="Next">
-                </form>
-            </div>
+
         </div>
     </div>
 </div>

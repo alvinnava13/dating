@@ -27,25 +27,25 @@
 
 
 
-<div class="container border rounded">
+<div class="container border rounded"><br>
     <div class="row">
         <div class="col-sm-6">
             <div id="profileSum" class="border rounded">
-                <p>Name:  </p>
+                <label>Name: </label><p>{{ @SESSION.firstname }} {{ @SESSION.lastname }}</p>
                 <hr>
-                <p>Gender: </p>
+                <label>Gender: </label><p>{{ @SESSION.gender }}</p>
                 <hr>
-                <p>Age: </p>
+                <label>Age: </label><p>{{ @SESSION.age }}</p>
                 <hr>
-                <p>Phone: </p>
+                <label>Phone: </label><p>{{ @SESSION.number }}</p>
                 <hr>
-                <p>Email: </p>
+                <label>Email: </label><p>{{ @SESSION.email }}</p>
                 <hr>
-                <p>State: </p>
+                <label>State: </label><p>{{ @SESSION.state }}</p>
                 <hr>
-                <p>Seeking: </p>
+                <label>Seeking: </label><p>{{ @SESSION.exampleRadiosSeeking }}</p>
                 <hr>
-                <p>Interests: </p>
+                <label>Interests: </label><p>{{ @SESSION.interest }}</p>
             </div>
         </div>
 
@@ -54,13 +54,13 @@
                 <img src="images/profilePicture.jpg" alt="Profile Picture">
             </div>
             <label>Biography</label>
-            <p class="text-center"></p>
+            <p class="text-center">{{ @SESSION.bio }}</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12 text-center">
-            <input type="submit" value="Contact Me!">
+            <input type="submit" value="Contact Me!" class="btn btn-primary bottomMargin">
         </div>
     </div>
 </div>
