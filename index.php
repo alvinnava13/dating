@@ -70,5 +70,13 @@ $f3->route('POST /summary', function(){
     echo $view->render('views/summary.html');
 });
 
+// Define a personal info route
+$f3->route('GET /home', function(){
+
+    // Display form2
+    $view = new Template();
+    echo $view->render('views/home.html');
+});
+
 // Run Fat-free
 $f3->run();
