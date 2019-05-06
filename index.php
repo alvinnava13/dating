@@ -38,8 +38,6 @@ $f3->route('GET|POST /create', function($f3) {
         $number = $_POST['number'];
         $gender = $_POST['gender'];
 
-        $_SESSION['gender'] = $gender;
-
 
         // Add data to hive
         $f3->set('firstname', $firstname);
@@ -55,17 +53,11 @@ $f3->route('GET|POST /create', function($f3) {
             $_SESSION['lastname'] = $lastname;
             $_SESSION['age'] = $age;
             $_SESSION['number'] = $number;
+            $_SESSION['gender'] = $gender;
 
             // Redirect to next form page
             $f3->reroute('/profile');
         }
-
-
-
-        /*if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']) && isset($_POST['number']))
-        {
-            $f3->reroute('/profile');
-        }*/
 
     }
 
@@ -102,8 +94,6 @@ $f3->route('GET|POST /profile', function($f3){
     }
 
 
-
-
     // Display form2
     $view = new Template();
     echo $view->render('views/profile.html');
@@ -112,14 +102,6 @@ $f3->route('GET|POST /profile', function($f3){
 // Define an interests route
 $f3->route('GET|POST /interests', function(){
 
-    $selectIndoor = join(', ', $_POST['interestIndoor']);
-    $selectedIndoor = trim($selectIndoor);
-
-    $selectOutdoor = join(', ', $_POST['interestOutdoor']);
-    $selectedOutdoor = trim($selectOutdoor);
-
-    $_SESSION['interestIndoor'] = $selectedIndoor;
-    $_SESSION['interestOutdoor'] = $selectedOutdoor;
 
     // Display form2
     $view = new Template();
@@ -127,16 +109,27 @@ $f3->route('GET|POST /interests', function(){
 });
 
 // Define a profile summary route
-$f3->route('GET|POST /summary', function(){
+$f3->route('GET|POST /summary', function($f3){
 
-    /*$selectIndoor = join(', ', $_POST['interestIndoor']);
-    $selectedIndoor = trim($selectIndoor);
+    if(!empty($_POST))
+    {
+        $selectIndoor = join(', ', $_POST['interestIndoor']);
+        $selectedIndoor = trim($selectIndoor);
 
-    $selectOutdoor = join(', ', $_POST['interestOutdoor']);
-    $selectedOutdoor = trim($selectOutdoor);
+        $selectOutdoor = join(', ', $_POST['interestOutdoor']);
+        $selectedOutdoor = trim($selectOutdoor);
 
-    $_SESSION['interestIndoor'] = $selectedIndoor;
-    $_SESSION['interestOutdoor'] = $selectedOutdoor;*/
+        $f3->set('interestIndoor', $selectedIndoor);
+        $f3->set('interestOutdoor', $selectedOutdoor);
+
+        if(validForm3()) {
+            $_SESSION['interestIndoor'] = $selectedIndoor;
+            $_SESSION['interestOutdoor'] = $selectedOutdoor;
+
+            $f3->reroute('/summary');
+        }
+    }
+
 
     // Display form2
     $view = new Template();

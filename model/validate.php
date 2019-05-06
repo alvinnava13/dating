@@ -37,6 +37,17 @@ function validForm2()
         $isValid = false;
         $f3->set("errors['email']", "Please enter your email address.");
     }
+
+    return $isValid;
+}
+
+
+
+function validForm3()
+{
+    global $f3;
+    $isValid = true;
+
     if (!validOutdoor($f3->get('interestOutdoor'))) {
         $isValid = false;
         $f3->set("errors['interestOutdoor']", "Invalid selection");
@@ -48,7 +59,6 @@ function validForm2()
 
     return $isValid;
 }
-
 
 function validFirst($firstname)
 {
