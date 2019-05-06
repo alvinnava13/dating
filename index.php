@@ -27,7 +27,7 @@ $f3->route('GET /', function () {
     $view = new Template();
     echo $view->render('views/home.html');
 });
-
+/*
 // Define a personal info route
 $f3->route('GET /create', function(){
 
@@ -35,15 +35,82 @@ $f3->route('GET /create', function(){
     $view = new Template();
     echo $view->render('views/info.html');
 });
+*/
+// Define a personal info route
+$f3->route('GET|POST /create', function($f3) {
+    // If form has been submitted, validate
+    if(!empty($_POST)) {
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $age = $_POST['age'];
+        //$email = $_POST['email'];
+        $number = $_POST['number'];
+        $gender = $_POST['gender'];
+
+        // Add data to hive
+        $f3->set('firstname', $firstname);
+        $f3->set('lastname', $lastname);
+        $f3->set('age', $age);
+        //$f3->set('email', $email);
+        $f3->set('number', $number);
+        $f3->set('gender', $gender);
+
+        // If data is valid
+        if (validForm()) {
+            // Write data to Session
+            $_SESSION['firstname'] = $firstname;
+            $_SESSION['lastname'] = $lastname;
+            $_SESSION['age'] = $age;
+            //$_SESSION['email'] = $email;
+            $_SESSION['number'] = $number;
+
+            // Redirect to next form page
+            $f3->reroute('/profile');
+        }
+
+
+        $_SESSION['gender'] = $gender;
+
+
+        /*if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']) && isset($_POST['number']))
+        {
+            $f3->reroute('/profile');
+        }*/
+    }
+
+    // Display form2
+    $view = new Template();
+    echo $view->render('views/info.html');
+});
+
 
 // Define a profile route
-$f3->route('POST /profile', function(){
+$f3->route('GET|POST /profile', function($f3){
 
-    $_SESSION['firstname'] = $_POST['firstname'];
-    $_SESSION['lastname'] = $_POST['lastname'];
-    $_SESSION['age'] = $_POST['age'];
-    $_SESSION['gender'] = $_POST['exampleRadios'];
-    $_SESSION['number'] = $_POST['number'];
+    if(!empty($_POST))
+    {
+        $email = $_POST['email'];
+        $state = $_POST['state'];
+        $exampleRadiosSeeking = $_POST['exampleRadios'];
+        $bio = $_POST['bio'];
+
+        $f3->set('email', $email);
+        $f3->set('state', $state);
+        $f3->set('exampleRadiosSeeking', $exampleRadiosSeeking);
+        $f3->set('bio', $bio);
+
+        if(validForm()) {
+
+            $_SESSION['email'] = $email;
+            $_SESSION['state'] = $state;
+            $_SESSION['exampleRadiosSeeking'] = $exampleRadiosSeeking;
+            $_SESSION['bio'] = $bio;
+
+            $f3->reroute('/interests');
+        }
+    }
+
+
 
 
     // Display form2
@@ -54,10 +121,7 @@ $f3->route('POST /profile', function(){
 // Define an interests route
 $f3->route('POST /interests', function(){
 
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['state'] = $_POST['state'];
-    $_SESSION['exampleRadiosSeeking'] = $_POST['exampleRadios'];
-    $_SESSION['bio'] = $_POST['bio'];
+
 
     // Display form2
     $view = new Template();
@@ -81,12 +145,21 @@ $f3->route('POST /summary', function(){
     echo $view->render('views/summary.html');
 });
 
+
 // Define a personal info route
 $f3->route('GET /home', function(){
 
     // Display form2
     $view = new Template();
     echo $view->render('views/home.html');
+});
+
+//Define a summary route
+$f3->route('GET /summary', function() {
+
+    //Display summary
+    $view = new Template();
+    echo $view->render('views/summary.html');
 });
 
 // Run Fat-free
