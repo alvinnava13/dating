@@ -112,7 +112,14 @@ $f3->route('GET|POST /profile', function($f3){
 // Define an interests route
 $f3->route('GET|POST /interests', function(){
 
+    $selectIndoor = join(', ', $_POST['interestIndoor']);
+    $selectedIndoor = trim($selectIndoor);
 
+    $selectOutdoor = join(', ', $_POST['interestOutdoor']);
+    $selectedOutdoor = trim($selectOutdoor);
+
+    $_SESSION['interestIndoor'] = $selectedIndoor;
+    $_SESSION['interestOutdoor'] = $selectedOutdoor;
 
     // Display form2
     $view = new Template();
@@ -122,14 +129,14 @@ $f3->route('GET|POST /interests', function(){
 // Define a profile summary route
 $f3->route('GET|POST /summary', function(){
 
-    $selectIndoor = join(', ', $_POST['interestIndoor']);
+    /*$selectIndoor = join(', ', $_POST['interestIndoor']);
     $selectedIndoor = trim($selectIndoor);
 
     $selectOutdoor = join(', ', $_POST['interestOutdoor']);
     $selectedOutdoor = trim($selectOutdoor);
 
     $_SESSION['interestIndoor'] = $selectedIndoor;
-    $_SESSION['interestOutdoor'] = $selectedOutdoor;
+    $_SESSION['interestOutdoor'] = $selectedOutdoor;*/
 
     // Display form2
     $view = new Template();
