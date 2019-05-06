@@ -90,7 +90,7 @@ $f3->route('GET|POST /profile', function($f3){
         $f3->set('exampleRadiosSeeking', $exampleRadiosSeeking);
         $f3->set('bio', $bio);
 
-        if(validForm()) {
+        if(validForm2()) {
 
             $_SESSION['email'] = $email;
             $_SESSION['state'] = $state;

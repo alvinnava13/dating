@@ -22,6 +22,17 @@ function validForm()
         $isValid = false;
         $f3->set("errors['number']", "Please enter your phone number.");
     }
+
+    return $isValid;
+}
+
+
+
+function validForm2()
+{
+    global $f3;
+    $isValid = true;
+
     if (!validEmail($f3->get('email'))) {
         $isValid = false;
         $f3->set("errors['email']", "Please enter your email address.");
@@ -37,7 +48,6 @@ function validForm()
 
     return $isValid;
 }
-
 
 
 function validFirst($firstname)
