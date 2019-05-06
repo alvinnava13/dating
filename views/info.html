@@ -36,25 +36,25 @@
             <form method="post" action="profile">
                 <div class="form-group">
                     <label for="formGroupExampleInput"><strong>First Name</strong></label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="firstname" value="{{ @firstname }}">
                     <check if="{{ @errors['firstname'] }}">
                         <span>{{ @errors['firstname'] }}</span>
                     </check>
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="firstname" value="{{ @firstname }}">
                 </div>
 
                 <div class="form-group">
                     <label for="formGroupExampleInput2"><strong>Last Name</strong></label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" name="lastname" value="{{ @lastname }}">
                     <check if="{{ @errors['lastname'] }}">
                         <span>{{ @errors['lastname'] }}</span>
                     </check>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" name="lastname" value="{{ @lastname }}">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput3"><strong>Age</strong></label>
+                    <input type="text" class="form-control" id="formGroupExampleInput3" name="age" value="{{ @age }}">
                     <check if="{{ @errors['age'] }}">
                         <span>{{ @errors['age'] }}</span>
                     </check>
-                    <input type="text" class="form-control" id="formGroupExampleInput3" name="age" value="{{ @age }}">
                 </div>
 
                 <label><strong>Gender</strong></label><br>

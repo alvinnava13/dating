@@ -4,12 +4,12 @@ function validForm()
 {
     global $f3;
     $isValid = true;
-    if (!validName($f3->get('firstname'))) {
+    if (!validFirst($f3->get('firstname'))) {
         $isValid = false;
         $f3->set("errors['firstname']", "Please enter your first name.");
     }
 
-    if (!validName($f3->get('lastname'))) {
+    if (!validLast($f3->get('lastname'))) {
         $isValid = false;
         $f3->set("errors['lastname']", "Please enter your last name.");
     }
@@ -40,14 +40,19 @@ function validForm()
 
 
 
-function validName($name)
+function validFirst($firstname)
 {
-    return !empty($name) && ctype_alpha($name);
+    return !empty($firstname) && ctype_alpha($firstname);
+}
+
+function validLast($lastname)
+{
+    return !empty($lastname) && ctype_alpha($lastname);
 }
 
 function validAge($age)
 {
-    return !empty($age) && ctype_digit($age) && $age >= 18 && $age<=118;
+    return !empty($age) && ctype_digit($age) && ($age >= 18 && $age<=118);
 }
 
 function validPhone($number)

@@ -27,15 +27,7 @@ $f3->route('GET /', function () {
     $view = new Template();
     echo $view->render('views/home.html');
 });
-/*
-// Define a personal info route
-$f3->route('GET /create', function(){
 
-    // Display form2
-    $view = new Template();
-    echo $view->render('views/info.html');
-});
-*/
 // Define a personal info route
 $f3->route('GET|POST /create', function($f3) {
     // If form has been submitted, validate
@@ -43,15 +35,16 @@ $f3->route('GET|POST /create', function($f3) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $age = $_POST['age'];
-        //$email = $_POST['email'];
         $number = $_POST['number'];
         $gender = $_POST['gender'];
+
+        $_SESSION['gender'] = $gender;
+
 
         // Add data to hive
         $f3->set('firstname', $firstname);
         $f3->set('lastname', $lastname);
         $f3->set('age', $age);
-        //$f3->set('email', $email);
         $f3->set('number', $number);
         $f3->set('gender', $gender);
 
@@ -61,7 +54,6 @@ $f3->route('GET|POST /create', function($f3) {
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $_SESSION['age'] = $age;
-            //$_SESSION['email'] = $email;
             $_SESSION['number'] = $number;
 
             // Redirect to next form page
@@ -69,13 +61,12 @@ $f3->route('GET|POST /create', function($f3) {
         }
 
 
-        $_SESSION['gender'] = $gender;
-
 
         /*if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']) && isset($_POST['number']))
         {
             $f3->reroute('/profile');
         }*/
+
     }
 
     // Display form2
@@ -119,7 +110,7 @@ $f3->route('GET|POST /profile', function($f3){
 });
 
 // Define an interests route
-$f3->route('POST /interests', function(){
+$f3->route('GET|POST /interests', function(){
 
 
 
@@ -129,7 +120,7 @@ $f3->route('POST /interests', function(){
 });
 
 // Define a profile summary route
-$f3->route('POST /summary', function(){
+$f3->route('GET|POST /summary', function(){
 
     $selectIndoor = join(', ', $_POST['interestIndoor']);
     $selectedIndoor = trim($selectIndoor);
@@ -146,16 +137,15 @@ $f3->route('POST /summary', function(){
 });
 
 
-// Define a personal info route
+// Define a route when nav bar is clicked
 $f3->route('GET /home', function(){
 
-    // Display form2
     $view = new Template();
     echo $view->render('views/home.html');
 });
 
 //Define a summary route
-$f3->route('GET /summary', function() {
+$f3->route('GET|POST /summary', function() {
 
     //Display summary
     $view = new Template();

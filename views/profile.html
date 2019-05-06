@@ -37,7 +37,10 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><strong>Email</strong></label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control" id="email" name="email" value="{{ @email }}">
+                        <check if="{{ @errors['email'] }}">
+                            <span>{{ @errors['email'] }}</span>
+                        </check>
                     </div>
 
                     <div class="form-group">
