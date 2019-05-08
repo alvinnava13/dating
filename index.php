@@ -36,7 +36,7 @@ $f3->route('GET|POST /create', function($f3) {
         $lastname = $_POST['lastname'];
         $age = $_POST['age'];
         $number = $_POST['number'];
-        $gender = $_POST['gender'];
+        $gender = $_POST['exampleRadios'];
 
 
         // Add data to hive
@@ -113,10 +113,10 @@ $f3->route('GET|POST /summary', function($f3){
 
     if(!empty($_POST))
     {
-        $selectIndoor = join(', ', $_POST['interestIndoor']);
+        $selectIndoor = implode(', ', $_POST['interestIndoor']);
         $selectedIndoor = trim($selectIndoor);
 
-        $selectOutdoor = join(', ', $_POST['interestOutdoor']);
+        $selectOutdoor = implode(', ', $_POST['interestOutdoor']);
         $selectedOutdoor = trim($selectOutdoor);
 
         $f3->set('interestIndoor', $selectedIndoor);
