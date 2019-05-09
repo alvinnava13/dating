@@ -15,9 +15,9 @@ $f3 = Base::instance();
 $f3->set('DEBUG', 3);
 
 // Define arrays
-$f3->set('interestIndoor', array('tv', 'puzzles', 'movies', 'reading',
+$f3->set('indoor', array('tv', 'puzzles', 'movies', 'reading',
     'cooking', 'playing cards', 'board games', 'video games'));
-$f3->set('interestOutdoor', array('hiking', 'walking', 'biking',
+$f3->set('outdoor', array('hiking', 'walking', 'biking',
     'climbing', 'swimming', 'collecting'));
 
 // Define a default route
@@ -104,16 +104,6 @@ $f3->route('GET|POST /interests', function($f3){
 
    if(!empty($_POST))
    {
-       /*$interestIndoor = $_POST['interestIndoor'];
-       $selectIndoor = implode(', ', $interestIndoor);
-       $selectedIndoor = trim($selectIndoor);
-       $interestOutdoor = $_POST['interestOutdoor'];
-       $selectOutdoor = implode(', ', $interestOutdoor);
-       $selectedOutdoor = trim($selectOutdoor);
-
-       $f3->set('interestIndoor', $interestIndoor);
-       $f3->set('interestOutdoor', $interestOutdoor);*/
-
        $indoor = $_POST['indoor'];
        $outdoor = $_POST['outdoor'];
 
