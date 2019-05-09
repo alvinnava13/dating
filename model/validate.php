@@ -48,13 +48,13 @@ function validForm3()
     global $f3;
     $isValid = true;
 
-    if (!validOutdoor($f3->get('interestOutdoor'))) {
+    if (!validOutdoor($f3->get('outdoor'))) {
         $isValid = false;
-        $f3->set("errors['interestOutdoor']", "Invalid selection");
+        $f3->set("errors['outdoor']", "Invalid selection");
     }
-    if (!validIndoor($f3->get('interestIndoor'))) {
+    if (!validIndoor($f3->get('indoor'))) {
         $isValid = false;
-        $f3->set("errors['interestIndoor']", "Invalid selection");
+        $f3->set("errors['indoor']", "Invalid selection");
     }
 
     return $isValid;
@@ -85,16 +85,16 @@ function validEmail($email)
     return !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-function validOutdoor($interestOutdoor)
+function validOutdoor($outdoor)
 {
     global $f3;
     // Interests are optional
-    if(empty($interestOutdoor)) {
+    if(empty($outdoor)) {
         return true;
     }
     // If there are outdoor interests checked, we need to make sure they're valid
-    foreach($interestOutdoor as $interest1) {
-        if(!in_array($interest1, $f3->get('interestOutdoor'))) {
+    foreach($outdoor as $interest) {
+        if(!in_array($interest, $outdoor)) {
             return false;
         }
     }
@@ -102,16 +102,16 @@ function validOutdoor($interestOutdoor)
     return true;
 }
 
-function validIndoor($interestIndoor)
+function validIndoor($indoor)
 {
     global $f3;
     // Interests are optional
-    if(empty($interestOutdoor)) {
+    if(empty($indoor)) {
         return true;
     }
     // If there are indoor interests checked, we need to make sure they're valid
-    foreach($interestIndoor as $interest2) {
-        if(!in_array($interest2, $f3->get('interestOutdoor'))) {
+    foreach($indoor as $interest) {
+        if(!in_array($interest, $indoor)) {
             return false;
         }
     }

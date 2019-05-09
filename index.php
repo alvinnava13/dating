@@ -100,8 +100,43 @@ $f3->route('GET|POST /profile', function($f3){
 });
 
 // Define an interests route
-$f3->route('GET|POST /interests', function(){
+$f3->route('GET|POST /interests', function($f3){
 
+   if(!empty($_POST))
+   {
+       /*$interestIndoor = $_POST['interestIndoor'];
+       $selectIndoor = implode(', ', $interestIndoor);
+       $selectedIndoor = trim($selectIndoor);
+       $interestOutdoor = $_POST['interestOutdoor'];
+       $selectOutdoor = implode(', ', $interestOutdoor);
+       $selectedOutdoor = trim($selectOutdoor);
+
+       $f3->set('interestIndoor', $interestIndoor);
+       $f3->set('interestOutdoor', $interestOutdoor);*/
+
+       $indoor = $_POST['indoor'];
+       $outdoor = $_POST['outdoor'];
+
+       $f3->set('indoor', $indoor);
+       $f3->set('outdoor', $outdoor);
+
+       if(validForm3())
+       {
+           $_SESSION['indoor'] = "";
+           $_SESSION['outdoor'] = "";
+
+           if(!empty($_POST['indoor']))
+           {
+               $_SESSION['indoor'] = implode(", ", $_POST['indoor']);
+           }
+           if(!empty($_POST['outdoor']))
+           {
+               $_SESSION['outdoor'] = implode(", ", $_POST['outdoor']);
+           }
+
+           $f3->reroute('/summary');
+       }
+   }
 
     // Display form2
     $view = new Template();
@@ -110,26 +145,6 @@ $f3->route('GET|POST /interests', function(){
 
 // Define a profile summary route
 $f3->route('GET|POST /summary', function($f3){
-
-    if(!empty($_POST))
-    {
-        $selectIndoor = implode(', ', $_POST['interestIndoor']);
-        $selectedIndoor = trim($selectIndoor);
-
-        $selectOutdoor = implode(', ', $_POST['interestOutdoor']);
-        $selectedOutdoor = trim($selectOutdoor);
-
-        $f3->set('interestIndoor', $selectedIndoor);
-        $f3->set('interestOutdoor', $selectedOutdoor);
-
-        if(validForm3()) {
-            $_SESSION['interestIndoor'] = $selectedIndoor;
-            $_SESSION['interestOutdoor'] = $selectedOutdoor;
-
-            $f3->reroute('/summary');
-        }
-    }
-
 
     // Display form2
     $view = new Template();
