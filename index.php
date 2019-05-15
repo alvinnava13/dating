@@ -37,7 +37,7 @@ $f3->route('GET|POST /create', function($f3) {
         $age = $_POST['age'];
         $number = $_POST['number'];
         $gender = $_POST['exampleRadios'];
-
+        $premium = $_POST['premium'];
 
         // Add data to hive
         $f3->set('firstname', $firstname);
@@ -45,6 +45,7 @@ $f3->route('GET|POST /create', function($f3) {
         $f3->set('age', $age);
         $f3->set('number', $number);
         $f3->set('gender', $gender);
+        $f3->set('premium', $premium);
 
         // If data is valid
         if (validForm()) {
@@ -54,6 +55,17 @@ $f3->route('GET|POST /create', function($f3) {
             $_SESSION['age'] = $age;
             $_SESSION['number'] = $number;
             $_SESSION['gender'] = $gender;
+
+            if($premium == "premium")
+            {
+                $user = new PremiumMember($firstname, $lastname, $age, $gender, $number);
+            }
+            else
+            {
+                $user = new Member($firstname, $lastname, $age, $gender, $number);
+            }
+
+            $_SESSION['user'] = $user;
 
             // Redirect to next form page
             $f3->reroute('/profile');
@@ -69,7 +81,6 @@ $f3->route('GET|POST /create', function($f3) {
 
 // Define a profile route
 $f3->route('GET|POST /profile', function($f3){
-
     if(!empty($_POST))
     {
         $email = $_POST['email'];
@@ -89,7 +100,22 @@ $f3->route('GET|POST /profile', function($f3){
             $_SESSION['exampleRadiosSeeking'] = $exampleRadiosSeeking;
             $_SESSION['bio'] = $bio;
 
-            $f3->reroute('/interests');
+            $user = $_SESSION['user'];
+
+            $user->setEmail($email);
+            $user->setState($state);
+            $user->setBio($bio);
+            $user->setSeeking($exampleRadiosSeeking);
+
+            $_SESSION['user'] = $user;
+
+            if($user instanceof PremiumMember){
+                $f3->reroute('/interests');
+            }
+            else{
+                $f3->reroute('/summary');
+            }
+            //$f3->reroute('/interests');
         }
     }
 
@@ -123,6 +149,10 @@ $f3->route('GET|POST /interests', function($f3){
            {
                $_SESSION['outdoor'] = implode(", ", $_POST['outdoor']);
            }
+
+           $user = $_SESSION['user'];
+           $user->setIndoorInterests($indoor);
+           $user->setOutdoorInterests($outdoor);
 
            $f3->reroute('/summary');
        }
