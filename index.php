@@ -11,7 +11,17 @@ require_once('model/validate.php');
 // Create an instance of the Base class
 $f3 = Base::instance();
 
-// Turn on Fat-Free error reporting
+//Turn on Fat-Free error reporting
+set_exception_handler(function($obj) use($f3){
+    $f3->error(500,$obj->getmessage(),$obj->gettrace());
+});
+set_error_handler(function($code,$text) use($f3)
+{
+    if (error_reporting())
+    {
+        $f3->error(500,$text);
+    }
+});
 $f3->set('DEBUG', 3);
 
 // Define arrays
@@ -56,7 +66,7 @@ $f3->route('GET|POST /create', function($f3) {
             $_SESSION['number'] = $number;
             $_SESSION['gender'] = $gender;
 
-            if($premium == "premium")
+            if($premium instanceof PremiumMember)
             {
                 $user = new PremiumMember($firstname, $lastname, $age, $gender, $number);
             }
@@ -65,8 +75,8 @@ $f3->route('GET|POST /create', function($f3) {
                 $user = new Member($firstname, $lastname, $age, $gender, $number);
             }
 
-            $_SESSION['user'] = $user;
-
+            $_SESSION['premium'] = $user;
+            //print_r($_SESSION['premium']);
             // Redirect to next form page
             $f3->reroute('/profile');
         }
@@ -80,7 +90,9 @@ $f3->route('GET|POST /create', function($f3) {
 
 
 // Define a profile route
-$f3->route('GET|POST /profile', function($f3){
+$f3->route('GET|POST /profile', function($f3)
+{
+
     if(!empty($_POST))
     {
         $email = $_POST['email'];
@@ -100,14 +112,14 @@ $f3->route('GET|POST /profile', function($f3){
             $_SESSION['exampleRadiosSeeking'] = $exampleRadiosSeeking;
             $_SESSION['bio'] = $bio;
 
-            $user = $_SESSION['user'];
+            $user = $_SESSION['premium'];
 
             $user->setEmail($email);
             $user->setState($state);
             $user->setBio($bio);
             $user->setSeeking($exampleRadiosSeeking);
 
-            $_SESSION['user'] = $user;
+            $_SESSION['premium'] = $user;
 
             if($user instanceof PremiumMember){
                 $f3->reroute('/interests');
@@ -116,6 +128,7 @@ $f3->route('GET|POST /profile', function($f3){
                 $f3->reroute('/summary');
             }
             //$f3->reroute('/interests');
+
         }
     }
 
@@ -150,9 +163,8 @@ $f3->route('GET|POST /interests', function($f3){
                $_SESSION['outdoor'] = implode(", ", $_POST['outdoor']);
            }
 
-           $user = $_SESSION['user'];
-           $user->setIndoorInterests($indoor);
-           $user->setOutdoorInterests($outdoor);
+           $_SESSION['premium']->setInDoorInterests($indoor);
+           $_SESSION['premium']->setOutDoorInterests($outdoor);
 
            $f3->reroute('/summary');
        }
