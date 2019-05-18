@@ -1,19 +1,15 @@
-<!-- Alvin Nava
-    4/13/19
-    summary.html
-    This file is a profile summary page for a dating website
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dating Website</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/summary.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Must do in relation to the index.php page -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <title>Summary</title>
 </head>
 <body>
 
@@ -25,45 +21,45 @@
 <br>
 <br>
 
-
-
-<div class="container border rounded"><br>
+<div class="container border rounded">
     <div class="row">
         <div class="col-sm-6">
             <div id="profileSum" class="border rounded">
-                <p class="indentP">Name: {{ @SESSION.firstname }} {{ @SESSION.lastname }}</p>
+                <p>Name: {{$_SESSION['member']->getFname() }} {{$_SESSION['member']->getLname() }}</p>
                 <hr>
-                <p class="indentP">Gender: {{ @SESSION.gender }}</p>
+                <p>Gender: {{$_SESSION['member']->getGender() }}</p>
                 <hr>
-                <p class="indentP">Age: {{ @SESSION.age }}</p>
+                <p>Age: {{$_SESSION['member']->getAge() }}</p>
                 <hr>
-                <p class="indentP">Phone: {{ @SESSION.number }}</p>
+                <p>Phone: {{$_SESSION['member']->getPhone() }}</p>
                 <hr>
-                <p class="indentP">Email: {{ @SESSION.email }}</p>
+                <p>Email: {{$_SESSION['member']->getEmail() }}</p>
                 <hr>
-                <p class="indentP">State: {{ @SESSION.state }}</p>
+                <p>State: {{$_SESSION['member']->getState() }}</p>
                 <hr>
-                <p class="indentP">Seeking: {{ @SESSION.exampleRadiosSeeking }}</p>
-                <hr>
-                <p class="indentP">Interests: {{ @SESSION.indoor }} <br> {{ @SESSION.outdoor }}</p>
+                <p>Seeking: {{$_SESSION['member']->getSeeking() }}</p>
+                <check if="{{$_SESSION['member'] instanceOf PremiumMember}}">
+                    <hr>
+                    <p>Interests: {{implode(', ', $_SESSION['member']->getInDoorInterests() )}},
+                        {{implode(', ', $_SESSION['member']->getOutDoorInterests()) }}</p>
+                </check>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="text-center">
-                <img src="images/profilePicture.jpg" alt="Profile Picture" id="image">
+                <img id="profilePic" src="images/profilepic.PNG" alt="profile picture">
             </div>
-            <label class="enlarge">Biography</label>
-            <p class="text-center">{{ @SESSION.bio }}</p>
+            <h4>Biography</h4>
+            <p class="text-center">{{$_SESSION['bio']}}</p>
         </div>
     </div>
 
-    <div class="row" id="submitButton">
+    <div class="row">
         <div class="col-sm-12 text-center">
-            <input type="submit" value="Contact Me!" class="btn btn-primary bottomMargin">
+            <button class="btn btn-primary bottomMargin">Contact Me!</button>
         </div>
     </div>
-    <br>
 </div>
 
 </body>

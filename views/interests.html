@@ -1,19 +1,15 @@
-<!-- Alvin Nava
-    4/13/19
-    interests.html
-    This file is a personal interest page for a dating website
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dating Website</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/interests.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Must do in relation to the index.php page -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <title>Interests</title>
 </head>
 <body>
 
@@ -25,169 +21,165 @@
 <br>
 <br>
 
+<form action="#" method="post">
+    <div class="container border rounded">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Interests</h1>
+                <hr>
+            </div>
+        </div>
 
+        <div class="row bottomMargin">
+            <div class="col-sm-12">
+                <p class="noBottomMargin"><strong>In-door Interests</strong></p>
+            </div>
 
-<div class="container">
-    <br>
-    <h2 class="indentHead">Interests</h2>
-    <hr>
-    <div class="row">
-        <div class="col-sm-12">
-
-            <form method="post" action="">
-
-
-            <label><strong>In-door Interests</strong></label>
-
-            <div class="row">
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="tv" id="defaultCheck1" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck1">
-                            tv
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="puzzles" id="defaultCheck2" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck2">
-                            puzzles
-                        </label>
-                    </div>
+            <div class="col-sm-3 checkInterests">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="tv">
+                        <check if="{{@indoor === 'tv'}}">checked</check>
+                        tv
+                    </label>
                 </div>
 
-
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="movies" id="defaultCheck3" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck3">
-                            movies
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="reading" id="defaultCheck4" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck4">
-                            reading
-                        </label>
-                    </div>
-                </div>
-
-
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="cooking" id="defaultCheck5" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck5">
-                            cooking
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="playing cards" id="defaultCheck6" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck6">
-                            playing cards
-                        </label>
-                    </div>
-                </div>
-
-
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="board games" id="defaultCheck7" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck7">
-                            board games
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="video games" id="defaultCheck8" name="indoor[]">
-                        <label class="form-check-label" for="defaultCheck8">
-                            video games
-                        </label>
-                    </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="puzzles">
+                        <check if="{{@indoor === 'puzzles'}}">checked</check>
+                        puzzles
+                    </label>
                 </div>
             </div>
 
-
-            <br>
-            <label><strong>Out-door Interests</strong></label>
-
-            <div class="row">
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="hiking" id="defaultCheck9" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck9">
-                            hiking
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="walking" id="defaultCheck10" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck10">
-                            walking
-                        </label>
-                    </div>
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="movies">
+                        <check if="{{@indoor === 'movies'}}">checked</check>
+                        movies
+                    </label>
                 </div>
 
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="biking" id="defaultCheck11" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck11">
-                            biking
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="climbing" id="defaultCheck12" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck12">
-                            climbing
-                        </label>
-                    </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="reading">
+                        <check if="{{@indoor === 'reading'}}">checked</check>
+                        reading
+                    </label>
                 </div>
-
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="swimming" id="defaultCheck13" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck13">
-                            swimming
-                        </label>
-                    </div>
-                </div>
-
-
-
-                <div class="column moveRight">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="collecting" id="defaultCheck14" name="outdoor[]">
-                        <label class="form-check-label" for="defaultCheck14">
-                            collecting
-                        </label>
-                    </div>
-                </div><br><br><br>
-
-
-                <div class="row button">
-                    <input type="submit" value="Next>" class="btn btn-primary float-right bottomMargin">
-                    <br>
-                </div>
-                <br>
-            </div>
-            </form>
-                </div>
-
-
-
             </div>
 
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="cooking">
+                        <check if="{{@indoor === 'cooking'}}">checked</check>
+                        cooking
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="playing cards">
+                        <check if="{{@indoor === 'playing cards'}}">checked</check>
+                        playing cards
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="board games">
+                        <check if="{{@indoor === 'board games'}}">checked</check>
+                        board games
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="indoor[]" value="video games">
+                        <check if="{{@indoor === 'video games'}}">checked</check>
+                        video games
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bottomMargin">
+            <div class="col-sm-12">
+                <p class="noBottomMargin"><strong>In-door Interests</strong></p>
+            </div>
+
+            <div class="col-sm-3 checkInterests">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="hiking">
+                        <check if="{{@outdoor === 'hiking'}}">checked</check>
+                        hiking
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="walking">
+                        <check if="{{@outdoor === 'walking'}}">checked</check>
+                        walking
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="biking">
+                        <check if="{{@outdoor === 'biking'}}">checked</check>
+                        biking
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="climbing">
+                        <check if="{{@outdoor === 'climbing'}}">checked</check>
+                        climbing
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="swimming">
+                        <check if="{{@outdoor === 'swimming'}}">checked</check>
+                        swimming
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="outdoor[]" value="collecting">
+                        <check if="{{@outdoor === 'collecting'}}">checked</check>
+                        collecting
+                    </label>
+                </div>
+            </div>
+        </div>
 
 
 
 
-
-
-
+        <div class="row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary float-right bottomMargin">Next ></button>
+            </div>
+        </div>
     </div>
-</div>
-
+</form>
 
 </body>
 </html>
