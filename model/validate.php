@@ -1,120 +1,102 @@
 <?php
 
+//function validName
+function validName($name)
+{
+    return !empty($name) && ctype_alpha($name);
+}//function validAge
+function validAge($age)
+{
+    return !empty($age) && ctype_digit($age) && (int)$age >= 18 && (int)$age <= 118;
+}//function validPhone
+function validPhone($phone)
+{
+    return ctype_digit($phone) && strlen($phone) === 10;
+}//function validEmail
+function validEmail($email)
+{
+    return filter_var($email);
+}//function validOutdoors
+function validOutdoor($outdoor)
+{
+    global $f3;
+    if(empty($outdoor))
+    {
+        return true;
+    }
+    foreach($outdoor as $interest)
+    {
+        if(!in_array($interest, $f3->get('outdoorInterests')))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+//function validIndoors
+function validIndoor($indoor)
+{
+    global $f3;
+    if(empty($indoor))
+    {
+        return true;
+    }
+    foreach($indoor as $interest)
+    {
+        if(!in_array($interest, $f3->get('indoorInterests')))
+        {
+            return false;
+        }
+    }
+    return true;
+}
 function validForm()
 {
     global $f3;
     $isValid = true;
-    if (!validFirst($f3->get('firstname'))) {
+//Validate first name is all alphabetic
+    if (!validName($f3->get('first'))) {
         $isValid = false;
-        $f3->set("errors['firstname']", "Please enter your first name.");
+        $f3->set("errors['first']", "Please enter a first name");
     }
-
-    if (!validLast($f3->get('lastname'))) {
+    //Validate last name is all alphabetic
+    if (!validName($f3->get('last'))) {
         $isValid = false;
-        $f3->set("errors['lastname']", "Please enter your last name.");
-    }
-
+        $f3->set("errors['last']", "Please enter a last name");
+    }//Validate if age is numeric and between 18 & 118
     if (!validAge($f3->get('age'))) {
         $isValid = false;
-        $f3->set("errors['age']", "Please enter your age.");
-    }
-    if (!validPhone($f3->get('number'))) {
+        $f3->set("errors['age']", "Please enter age 18 to 118");
+    }//Validates phone number
+    if (!validPhone($f3->get('phone'))) {
         $isValid = false;
-        $f3->set("errors['number']", "Please enter your phone number.");
+        $f3->set("errors['phone']", "Please enter a valid phone number");
     }
-
     return $isValid;
 }
-
-
-
 function validForm2()
 {
     global $f3;
     $isValid = true;
-
+    //Validates email
     if (!validEmail($f3->get('email'))) {
         $isValid = false;
-        $f3->set("errors['email']", "Please enter your email address.");
+        $f3->set("errors['email']", "Please enter a valid email");
     }
-
     return $isValid;
 }
-
-
-
 function validForm3()
-{
+{// Validates each interest against
+    // a list of valid options
     global $f3;
     $isValid = true;
-
     if (!validOutdoor($f3->get('outdoor'))) {
         $isValid = false;
-        $f3->set("errors['outdoor']", "Invalid selection");
+        $f3->set("errors['outdoor']", "Please enter valid outdoor interests");
     }
     if (!validIndoor($f3->get('indoor'))) {
         $isValid = false;
-        $f3->set("errors['indoor']", "Invalid selection");
+        $f3->set("errors['indoor']", "Please enter valid indoor interests");
     }
-
     return $isValid;
-}
-
-function validFirst($firstname)
-{
-    return !empty($firstname) && ctype_alpha($firstname);
-}
-
-function validLast($lastname)
-{
-    return !empty($lastname) && ctype_alpha($lastname);
-}
-
-function validAge($age)
-{
-    return !empty($age) && ctype_digit($age) && ($age >= 18 && $age<=118);
-}
-
-function validPhone($number)
-{
-    return !empty($number) && ctype_digit($number) && strlen($number) == 10;
-}
-
-function validEmail($email)
-{
-    return !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL);
-}
-
-function validOutdoor($outdoor)
-{
-    global $f3;
-    // Interests are optional
-    if(empty($outdoor)) {
-        return true;
-    }
-    // If there are outdoor interests checked, we need to make sure they're valid
-    foreach($outdoor as $interest) {
-        if(!in_array($interest, $outdoor)) {
-            return false;
-        }
-    }
-    // If we're still here, then we have valid outdoor interests
-    return true;
-}
-
-function validIndoor($indoor)
-{
-    global $f3;
-    // Interests are optional
-    if(empty($indoor)) {
-        return true;
-    }
-    // If there are indoor interests checked, we need to make sure they're valid
-    foreach($indoor as $interest) {
-        if(!in_array($interest, $indoor)) {
-            return false;
-        }
-    }
-    // If we're still here, then we have valid indoor interests
-    return true;
 }

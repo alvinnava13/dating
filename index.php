@@ -11,14 +11,14 @@ $f3 = Base::instance();
 $f3->set("indoorInterests", array('tv', 'puzzles', 'movies', 'reading', 'cooking', 'playing cards', 'board games', 'video games'));
 $f3->set("outdoorInterests", array('hiking', 'walking', 'biking', 'climbing', 'swimming', 'collecting'));
 //adding array of states
-/*$f3->set('states', array('Alabama','Alaska','Arizona','Arkansas','California',
+$f3->set('states', array('Alabama','Alaska','Arizona','Arkansas','California',
     'Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia',
     'Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana',
     'Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri',
     'Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York',
     'North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island',
     'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington',
-    'West Virginia','Wisconsin','Wyoming'));*/
+    'West Virginia','Wisconsin','Wyoming'));
 //define a default route
 $f3->route('GET /', function () {
     $view = new Template();
