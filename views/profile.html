@@ -49,8 +49,8 @@
                         <repeat group="{{ @states }}" value="{{ @state }}">
                             <option value="{{ @state }}">
                                 <check if="{{isset(@SESSION.state) && @SESSION.state == @state }}">
-                                    selected="selected"
-                                </check>>
+
+                                </check>
                                 {{ @state }}
                             </option>
                         </repeat>

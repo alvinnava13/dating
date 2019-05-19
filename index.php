@@ -136,13 +136,13 @@ $f3->route('GET|POST /interests', function ($f3)
                 $_SESSION['indoor'] = ["No indoor interests selected"];
             }
             else {
-                $_SESSION['indoor'] = $indoor;
+                $_SESSION['indoor'] = implode(", ", $_POST['indoor']);
             }
             if (empty($outdoor)) {
                 $_SESSION['outdoor'] = ["No outdoor interests selected"];
             }
             else {
-                $_SESSION['outdoor'] = $outdoor;
+                $_SESSION['outdoor'] = implode(", ", $_POST['indoor']);
             }
             $_SESSION['member']->setInDoorInterests($indoor);
             $_SESSION['member']->setOutDoorInterests($outdoor);

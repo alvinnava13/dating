@@ -44,7 +44,7 @@
                 <check if="{{ $_SESSION['member'] instanceOf PremiumMember }}">
                     <hr>
                     <p class="indentP">Interests: {{ implode(', ', $_SESSION['member']->getInDoorInterests() )}},
-                        {{implode(', ', $_SESSION['member']->getOutDoorInterests()) }}</p>
+                        {{ implode(', ', $_SESSION['member']->getOutDoorInterests()) }}</p>
                 </check>
             </div>
         </div>
