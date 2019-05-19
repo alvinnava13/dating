@@ -133,13 +133,13 @@ $f3->route('GET|POST /interests', function ($f3)
         if (validForm3()) {
             //Write data to Session
             if (empty($indoor)) {
-                $_SESSION['indoor'] = ["no indoor interests"];
+                $_SESSION['indoor'] = ["No indoor interests selected"];
             }
             else {
                 $_SESSION['indoor'] = $indoor;
             }
             if (empty($outdoor)) {
-                $_SESSION['outdoor'] = ["no outdoor interests"];
+                $_SESSION['outdoor'] = ["No outdoor interests selected"];
             }
             else {
                 $_SESSION['outdoor'] = $outdoor;

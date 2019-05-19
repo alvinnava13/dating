@@ -24,25 +24,26 @@
 <br>
 
 <div class="container border rounded">
+    <br>
     <div class="row">
         <div class="col-sm-6">
             <div id="profileSum" class="border rounded">
-                <p>Name: {{ $_SESSION['member']->getFname() }} {{ $_SESSION['member']->getLname() }}</p>
+                <p class="indentP">Name: {{ $_SESSION['member']->getFname() }} {{ $_SESSION['member']->getLname() }}</p>
                 <hr>
-                <p>Gender: {{ $_SESSION['member']->getGender() }}</p>
+                <p class="indentP">Gender: {{ $_SESSION['member']->getGender() }}</p>
                 <hr>
-                <p>Age: {{ $_SESSION['member']->getAge() }}</p>
+                <p class="indentP">Age: {{ $_SESSION['member']->getAge() }}</p>
                 <hr>
-                <p>Phone: {{ $_SESSION['member']->getPhone() }}</p>
+                <p class="indentP">Phone: {{ $_SESSION['member']->getPhone() }}</p>
                 <hr>
-                <p>Email: {{ $_SESSION['member']->getEmail() }}</p>
+                <p class="indentP">Email: {{ $_SESSION['member']->getEmail() }}</p>
                 <hr>
-                <p>State: {{ $_SESSION['member']->getState() }}</p>
+                <p class="indentP">State: {{ $_SESSION['member']->getState() }}</p>
                 <hr>
-                <p>Seeking: {{ $_SESSION['member']->getSeeking() }}</p>
+                <p class="indentP">Seeking: {{ $_SESSION['member']->getSeeking() }}</p>
                 <check if="{{ $_SESSION['member'] instanceOf PremiumMember }}">
                     <hr>
-                    <p>Interests: {{implode(', ', $_SESSION['member']->getInDoorInterests() )}},
+                    <p class="indentP">Interests: {{ implode(', ', $_SESSION['member']->getInDoorInterests() )}},
                         {{implode(', ', $_SESSION['member']->getOutDoorInterests()) }}</p>
                 </check>
             </div>
@@ -55,13 +56,13 @@
             <h4>Biography</h4>
             <p class="text-center">{{ $_SESSION['bio'] }}</p>
         </div>
-    </div>
+    </div><br>
 
     <div class="row">
         <div class="col-sm-12 text-center">
-            <button class="btn btn-primary bottomMargin">Contact Me!</button>
+            <button class="btn btn-primary bottomMargin button" id="submitButton">Contact Me!</button>
         </div>
-    </div>
+    </div><br>
 </div>
 
 </body>
