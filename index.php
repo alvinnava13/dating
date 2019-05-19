@@ -157,5 +157,13 @@ $f3->route('GET|POST /summary', function ()
     $view = new Template();
     echo $view->render('views/summary.html');
 });
+
+// Define a route when nav bar is clicked
+$f3->route('GET /home', function(){
+
+    $view = new Template();
+    echo $view->render('views/home.html');
+});
+
 //Run fat-free
 $f3->run();
