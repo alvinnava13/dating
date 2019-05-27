@@ -165,5 +165,19 @@ $f3->route('GET /home', function(){
     echo $view->render('views/home.html');
 });
 
+
+// Admin route to view admin page
+$f3->route('GET /admin', function($f3) {
+
+    global $db;
+
+    $members = $db->getMembers();
+
+    $f3->set('members', $members);
+    $f3->set('db', $db);
+
+    $view = new Template();
+    echo $view->render('views/admin.html');
+});
 //Run fat-free
 $f3->run();
