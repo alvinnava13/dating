@@ -34,10 +34,10 @@ class Database
         $query = "SELECT * FROM member
                   ORDER BY lname ASC";
 
-        // Prepare statement
+        // Prepare the statement
         $statement = $this->_db->prepare($query);
 
-        // Execute query
+        // Execute the query
         $statement->execute();
 
         // Get results
@@ -52,13 +52,13 @@ class Database
         $query = "SELECT * FROM member
                   WHERE member_id = :member_id";
 
-        // Prepare statement
+        // Prepare the statement
         $statement = $this->_db->prepare($query);
 
-        // Bind parameters
+        // Bind the parameters
         $statement->bindParam(':member_id', $member_id);
 
-        // Execute
+        // Execute the query
         $statement->execute();
 
         // Get results
@@ -69,6 +69,24 @@ class Database
 
     function getInterests($member_id)
     {
+        // Define query
+        $query = "SELECT interest, type
+                  FROM interest
+                  INNER JOIN memberinterest
+                  ON member_interest.interest_id = interest.interest_id
+                  WHERE member_id = :member_id";
 
+        // Prepare statement
+        $statement = $this->_db->prepare($query);
+
+        // Bind the parameters
+        $statement->bindParam(':member_id', $member_id);
+
+        // Execute the query
+        $statement->execute();
+        //get results
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
     }
 }
