@@ -23,9 +23,32 @@ class Database
         }
     }
 
-    function insertMember()
+    function insertMember($fname, $lname, $age, $gender, $phone, $email, $state, $seeking, $bio, $premium, $image)
     {
+        // Define the query
+        $query = 'INSERT INTO member
+                  (fname, lname, age, gender, phone, email, state, seeking, bio, premium, image)
+                  VALUES
+                  (:fname, :lname, :age, :gender, :phone, :email, :state, :seeking, :bio, :premium, :image)';
 
+        // Prepare the statement
+        $statement = $this->_db->prepare($query);
+
+        // Bind the parameters
+        $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
+        $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
+        $statement->bindParam(':age', $age, PDO::PARAM_STR);
+        $statement->bindParam(':gender', $gender, PDO::PARAM_STR);
+        $statement->bindParam(':phone', $phone, PDO::PARAM_STR);
+        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':state', $state, PDO::PARAM_STR);
+        $statement->bindParam(':seeking', $seeking, PDO::PARAM_STR);
+        $statement->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $statement->bindParam(':premium', $premium, PDO::PARAM_INT);
+        $statement->bindParam(':image', $image, PDO::PARAM_STR);
+
+        // Execute the query
+        $statement->execute();
     }
 
     function getMembers()
