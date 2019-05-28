@@ -1,15 +1,21 @@
 <?php
 require_once('vendor/autoload.php');
+
 session_start();
+
 ini_set('display_errors', true);
 error_reporting(E_ALL);
+
 //Require autoload file
 require_once('model/validate.php');
+
 //Create an instance of the Base class
 $f3 = Base::instance();
+
 // validate against array
 $f3->set("indoorInterests", array('tv', 'puzzles', 'movies', 'reading', 'cooking', 'playing cards', 'board games', 'video games'));
 $f3->set("outdoorInterests", array('hiking', 'walking', 'biking', 'climbing', 'swimming', 'collecting'));
+
 //adding array of states
 $f3->set('states', array('Alabama','Alaska','Arizona','Arkansas','California',
     'Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia',
@@ -19,12 +25,14 @@ $f3->set('states', array('Alabama','Alaska','Arizona','Arkansas','California',
     'North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island',
     'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington',
     'West Virginia','Wisconsin','Wyoming'));
-//define a default route
+
+// Define a default route
 $f3->route('GET /', function () {
     $view = new Template();
     echo $view->render('views/home.html');
 });
-//Route to information form
+
+// Route to information form
 $f3->route('GET|POST /create', function ($f3)
 {
     if(!empty($_POST)) {
