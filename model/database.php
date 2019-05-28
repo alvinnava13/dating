@@ -2,15 +2,33 @@
 
 require '/home/anavagre/config-student.php';
 
+/**
+ * Class Database connects to our database and allows us to query it
+ *
+ * The database class allows us to retrieve user info from the database
+ * and display it in our admin page for our dating website
+ * @author Alvin Nava <anava8@mail.greenriver.edu>
+ * @copyright 2019
+ */
 class Database
 {
+    // Fields
     private $_dbh;
 
+    /**
+     * Database constructor.
+     * Allows database object to connect to the database
+     */
     function __construct()
     {
         $this->connect();
     }
 
+    /**
+     * Function that creates a database object and tries to connect to the
+     * database. If it fails, it displays an error message
+     * @return PDO a database object
+     */
     function connect()
     {
         try {
@@ -23,6 +41,20 @@ class Database
         }
     }
 
+    /**
+     * Function that uses a query to insert data into our database
+     * @param $fname - First name of the user
+     * @param $lname - Last name of the user
+     * @param $age - Age of the user
+     * @param $gender - Gender of the user
+     * @param $phone - Phone number of the user
+     * @param $email - Email address of the user
+     * @param $state - State that the user resides in
+     * @param $seeking - Gender that the user is seeking
+     * @param $bio - Biography of the user
+     * @param $premium - Is the user a premium user or not
+     * @param $image - Image uploaded by the user
+     */
     function insertMember($fname, $lname, $age, $gender, $phone, $email, $state, $seeking, $bio, $premium, $image)
     {
         // Define the query
@@ -51,6 +83,11 @@ class Database
         $statement->execute();
     }
 
+    /**
+     * Function that retrieves all the information from the
+     * database about all the users and displays them
+     * @return The information of the users
+     */
     function getMembers()
     {
         // Define query
@@ -69,6 +106,12 @@ class Database
         return $results;
     }
 
+    /**
+     * Function retrieves all info from the database of specified member id
+     * @param $member_id The member id. This function is used to
+     * return the info of a certain user with the specified member id
+     * @return The information of the users
+     */
     function getMember($member_id)
     {
         // Define query
@@ -90,6 +133,12 @@ class Database
         return $result;
     }
 
+    /**
+     * This function retrieves all of the indoor and outdoor interests
+     * of the specified member id
+     * @param $member_id - The member id of the user being queried
+     * @return The list of interests of the user
+     */
     function getInterests($member_id)
     {
         // Define query
