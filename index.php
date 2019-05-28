@@ -162,6 +162,9 @@ $f3->route('GET|POST /interests', function ($f3)
 });
 $f3->route('GET|POST /summary', function ()
 {
+    global $db;
+    $db->insertMember($_SESSION['member']);
+
     $view = new Template();
     echo $view->render('views/summary.html');
 });
@@ -179,10 +182,11 @@ $f3->route('GET /admin', function($f3) {
 
     global $db;
 
-    $members = $db->getMembers();
-
-    $f3->set('members', $members);
-    $f3->set('db', $db);
+    $dbo = new Database();
+    $dbo->connect();
+    $members = $dbo->getMembers();
+    $f3->set('member', $members);
+    $f3->set('db', $dbo);
 
     $view = new Template();
     echo $view->render('views/admin.html');
